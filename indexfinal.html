@@ -1,42 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Assessment Skills</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesfinal.css" />
-</head>
-<body>
-  <div class="page-header">
-    <h1>Assessment Skills</h1>
-    <p>Pick a skill below to test and improve your speech ability</p>
-  </div>
 
-  <div class="skills-grid">
-    <div class="skill-card speak" onclick="startQuiz('read')">
-      <div class="icon">📖</div>
-      <h3>Read Aloud</h3><p>Practice sentence reading</p>
-    </div>
-    <div class="skill-card word" onclick="startQuiz('word')">
-      <div class="icon">🔤</div>
-      <h3>Word Pronunciation</h3><p>Say tricky words clearly</p>
-    </div>
-    <div class="skill-card twist" onclick="startQuiz('tongue')">
-      <div class="icon">😅</div>
-      <h3>Tongue Twisters</h3><p>Challenge your fluency</p>
-    </div>
-    <div class="skill-card question" onclick="startQuiz('question')">
-      <div class="icon">❓</div>
-      <h3>Answer Questions</h3><p>Practice natural responses</p>
-    </div>
-    <div class="skill-card photo" onclick="startQuiz('photo')">
-      <div class="icon">🖼️</div>
-      <h3>Describe Photos</h3><p>Speak about images</p>
-    </div>
-    <div class="skill-card numbers" onclick="startQuiz('numbers')">
-      <div class="icon">🔢</div>
-      <h3>Number Reading</h3><p>Test clarity & pacing</p>
-    </div>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      overflow-x: hidden;
+    }
+
+    .sidebar {
+      background-color: #1a237e;
+      color: #e0e7ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 0;
+      transition: width 0.3s ease;
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      position: relative;
+    }
+
+    .sidebar-item.active {
+      background-color: #3f51b5;
+    }
+
+    .sidebar-item:hover:not(.active) {
+      background-color: #283593;
+    }
+
+    .sidebar-item .icon {
+      font-size: 1.25rem;
+      margin-right: 1.25rem;
+    }
+
+    .sidebar-item .label {
+      font-weight: 500;
+    }
+
+    .sidebar-item.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background-color: #ffc107;
+      border-radius: 0 5px 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        min-height: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+      }
+
+      .sidebar-item {
+        flex-direction: column;
+        padding: 0.75rem 0.5rem;
+        text-align: center;
+      }
+
+      .sidebar-item.active::after {
+        width: 100%;
+        height: 5px;
+        bottom: 0;
+        top: auto;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .sidebar-item .icon {
+        margin-right: 0;
+        margin-bottom: 0.25rem;
+      }
+
+      .sidebar-item .label {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 min-h-screen bg-blue-900 text-white">
+      <div class="p-6 text-2xl font-bold">FluentMe<br></div>
+      <nav class="mt-10">
+        <a href="index1.html" class="flex items-center py-3 px-6 hover:bg-blue-800 transition">
+          <span class="ml-3">Dashboard</span>
+        </a>
+        <a href="as.html" class="flex items-center py-3 px-6 hover:bg-blue-800 transition">
+          <span class="ml-3">Practice</span>
+        </a>
+        <a href="progress.html" class="flex items-center py-3 px-6 hover:bg-blue-800 transition">
+          <span class="ml-3">Progress</span>
+        </a>
+        <a href="leaderboard.html" class="flex items-center py-3 px-6 bg-blue-800 rounded-l-lg">
+          <span class="ml-3">Leaderboard</span>
+        </a>
+        <a href="settings.html" class="flex items-center py-3 px-6 hover:bg-blue-800 transition">
+          <span class="ml-3">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 md:p-10 lg:p-12">
+      <div class="page-header text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Assessment Skills</h1>
+        <p class="text-black-500">Pick a skill below to test and improve your speech ability</p>
+      </div>
+
+      <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="skill-card speak bg-white p-6 rounded-2xl shadow hover:shadow-lg cursor-pointer" onclick="startQuiz('read')">
+          <div class="icon text-4xl mb-3">📖</div>
+          <h3 class="text-lg font-semibold">Read Aloud</h3>
+          <p class="text-gray-500">Practice sentence reading</p>
+        </div>
+        <div class="skill-card word bg-white p-6 rounded-2xl shadow hover:shadow-lg cursor-pointer" onclick="startQuiz('word')">
+          <div class="icon text-4xl mb-3">🔤</div>
+          <h3 class="text-lg font-semibold">Word Pronunciation</h3>
+          <p class="text-gray-500">Say tricky words clearly</p>
+        </div>
+        <div class="skill-card twist bg-white p-6 rounded-2xl shadow hover:shadow-lg cursor-pointer" onclick="startQuiz('tongue')">
+          <div class="icon text-4xl mb-3">😅</div>
+          <h3 class="text-lg font-semibold">Tongue Twisters</h3>
+          <p class="text-gray-500">Challenge your fluency</p>
+        </div>
+        <div class="skill-card question bg-white p-6 rounded-2xl shadow hover:shadow-lg cursor-pointer" onclick="startQuiz('question')">
+          <div class="icon text-4xl mb-3">❓</div>
+          <h3 class="text-lg font-semibold">Answer Questions</h3>
+          <p class="text-gray-500">Practice natural responses</p>
+        </div>
+        <div class="skill-card photo bg-white p-6 rounded-2xl shadow hover:shadow-lg cursor-pointer" onclick="startQuiz('photo')">
+          <div class="icon text-4xl mb-3">🖼️</div>
+          <h3 class="text-lg font-semibold">Describe Photos</h3>
+          <p class="text-gray-500">Speak about images</p>
+        </div>
+        <div class="skill-card numbers bg-white p-6 rounded-2xl shadow hover:shadow-lg cursor-pointer" onclick="startQuiz('numbers')">
+          <div class="icon text-4xl mb-3">🔢</div>
+          <h3 class="text-lg font-semibold">Number Reading</h3>
+          <p class="text-gray-500">Test clarity & pacing</p>
+        </div>
+      </div>
+    </main>
   </div>
 
   <script>
@@ -44,5 +177,8 @@
       window.location.href = "quizfinal.html?type=" + encodeURIComponent(type);
     }
   </script>
+
 </body>
+
 </html>
+
