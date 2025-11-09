@@ -74,14 +74,14 @@ When a user logs in:
 ## Project Structure (Simplified)  
 ---
 FloatChat/
-├── index.html # Landing page
-├── signin.html # Login page (auto-filled credentials)
-├── chat.html # Main chat UI
+├── index.html               # Landing page  
+├── signin.html              # Login page (auto-filled credentials)  
+├── chat.html                # Main chat UI  
 ├── assets/
-│ ├── css/
-│ │ └── style.css # Core styles
-│ └── js/
-│ └── script.js # UI interactivity
+│   ├── css/
+│   │   └── style.css        # Core styles  
+│   └── js/
+│       └── script.js        # UI interactivity  
 └── README.md
 
 ---
@@ -89,7 +89,7 @@ FloatChat/
 ## Deployed Link  
 ---
 
-**Live Demo:** [https://floatchat-seven.vercel.app](https://floatchat-seven.vercel.app)  
+**Live Demo:** [https://fluentme.vercel.app/](https://fluentme.vercel.app/)  
 *(Open in Chrome/Edge for best experience)*
 
 ---
