@@ -71,17 +71,17 @@ When a user logs in:
 
 ---
 
-## Project Structure (Simplified)  
+## Project Structure 
 ---
 FloatChat/
-├── index.html               # Landing page  
-├── signin.html              # Login page (auto-filled credentials)  
-├── chat.html                # Main chat UI  
+├── index.html              # Landing page
+├── signin.html             # Login page (auto-filled credentials)
+├── chat.html               # Main chat UI
 ├── assets/
 │   ├── css/
-│   │   └── style.css        # Core styles  
+│   │   └── style.css       # Core styles
 │   └── js/
-│       └── script.js        # UI interactivity  
+│       └── script.js       # UI interactivity
 └── README.md
 
 ---
@@ -108,8 +108,6 @@ FloatChat/
 ## Author  
 ---
 
-**Hargun**  
-Frontend & AI Enthusiast  
-
+**Hargun Kaur**  
 GitHub → @hargun144
 
