@@ -79,25 +79,6 @@ All this runs purely on the **front-end** — no server required.
 | View My Results | `profile_final.html` |
 
 ---
-
-## 📁 Project Structure 
----
-
-FluentME/
-├── index.html               # Landing page (marketing)
-├── login.html               # Login / Signup
-├── dashboard.html           # Main dashboard hub
-├── as.html                  # Practice entry point
-├── assessment.html          # Pick skill type
-├── quizfinal.html           # Main speech practice
-├── quizfinal.js             # ALL speech logic
-├── profile_final.html       # Results view
-├── progress.html            # Stats screens (demo UI)
-├── leaderboard.html         # Static leaderboard (future: backend)
-├── settings.html            # Preferences page
-├── stylesfinal.css
-└── welcome.css
----
 ## Deployed Link  
 ---
 
@@ -121,8 +102,6 @@ FluentME/
 ---
 
 **Hargun**  
-Frontend & AI Enthusiast  
-
-GitHub → [@yourusername](https://github.com/yourusername)
+GitHub → @hargun144
 
 
