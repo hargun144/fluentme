@@ -1,95 +1,107 @@
-# FloatChat  
+# FluentMe  
 ---
 
-**FloatChat** is a browser-based real-time chat interface designed to offer a smooth, minimal, and engaging messaging experience.  
-Built originally for frontend prototyping and hackathon demos — FloatChat showcases how clean UI + auto-auth simulation can demonstrate a real-world chat flow without backend dependencies.
+**FluentMe** is a browser-based AI speech coaching platform designed to help users with stuttering or fluency issues practice speaking in a gamified way — with real-time speech feedback, fluency scoring, and a friendly UI.
 
----
-
-## Why FloatChat  
----
-
-Most chat demos are either too technical or lack visual polish.  
-**FloatChat** makes it simple, lightweight, and aesthetically modern.
-
-- **Auto-filled credentials** for instant access  
-- **Responsive and clean UI**  
-- **Smooth chat interface simulation**  
-- **Easy to extend** with real backend or APIs  
+Built originally for hackathon pitching — FluentMe demonstrates that real-time speech analysis + gamified learning can make speech therapy accessible, stigma-free & fun.
 
 ---
 
-## Key Features  
+## Why FluentMe?  
+---
+
+Most speech improvement tools are boring or medical-feeling.  
+**FluentMe** makes it game-like:
+
+- **Multiple practice modes** — Read Aloud, Tongue Twisters, Numbers, etc.  
+- **Instant feedback** as you speak  
+- **Analytical scoring** — WPM, pauses, disfluencies, repetition events, etc.  
+- **Session-by-session progress** screen  
+- **Demo leaderboard** between peers (for motivation)  
+
+---
+
+## 🌟 Key Features  
 ---
 
 | Feature | Description |
 |----------|-------------|
-| Instant Login | Auto-filled username and password for demo flow |
-| Chat Interface | Minimal chat window UI, styled for readability |
-| Responsive Layout | Works seamlessly across desktop and mobile |
-| Sidebar & User Cards | Demo-ready for multi-user chat setup |
-| Clean Aesthetic | Tailwind CSS-based smooth gradients and rounded UI |
-| Static Frontend | No backend required — runs entirely in browser |
+| **Practice Modules** | 6 modes like Read Aloud, Words, Tongue Twisters, Answer Questions etc |
+| **Real-Time Speech Capture** | Web Speech API + MediaRecorder + custom heuristics |
+| **VAD (Voice Activity Detection)** | RMS-based detection to compute speaking time & pauses |
+| **Fluency Analytics** | WPM, pause count, stutter-like event detection, WER etc |
+| **Gamified UI** | Skill badges, streak visuals, motivational dashboard |
+| **Leaderboard UI** | Static leaderboard card (demo for future real backend) |
 
 ---
 
-## Architecture Overview  
+## 🧠 Speech Processing Logic (High-Level)  
 ---
 
-All logic runs client-side using plain **HTML, CSS, and JavaScript**.
+When the user speaks →  
 
-When a user logs in:
-1. Pre-filled credentials simulate instant sign-in  
-2. User is redirected to the chat dashboard  
-3. Messages are displayed dynamically within the same session  
-4. (Optional) You can connect a backend or Firebase for real-time chat persistence  
+1. Browser microphone is captured  
+2. RMS-based VAD runs to detect silence vs voice frames  
+3. Web Speech API is used to transcribe text  
+4. Heuristics detect disfluency events (repetitions, prefix repeats, etc.)  
+5. Metrics like WPM, duration, pauses, WER, etc., are extracted  
+6. `localStorage` stores per-skill score (simple scoring system)  
+7. Dashboard + profile pages visualize improvement  
+
+All this runs purely on the **front-end** — no server required.  
 
 ---
 
-## Tech Stack  
+## 🧩 Tech Stack  
 ---
 
 | Layer | Technology |
 |--------|-------------|
-| Frontend | HTML5, CSS3, JavaScript |
-| Styling | Tailwind CSS |
-| UI Components | Custom cards, sidebar layout |
-| Icons | Lucide / Remix icons |
-| Deployment | Vercel (static site hosting) |
+| **Core** | HTML, CSS, JavaScript |
+| **Speech Recognition** | Web Speech API |
+| **Audio Capture / VAD** | MediaRecorder, WebAudio API |
+| **Charting / Stats** | Chart.js |
+| **Storage** | localStorage (browser) |
+| **UI Styling** | Tailwind CSS + custom CSS |
 
 ---
 
-## User Journey  
+## 🔄 User Journey  
 ---
 
 | Step | Screen |
 |------|--------|
 | Landing | `index.html` |
-| Login | `signin.html` (auto-filled credentials) |
-| Chat Dashboard | `chat.html` or main chat interface |
-| Profile / Sidebar | Demo card elements for future expansion |
+| Login/Signup | `login.html` |
+| Dashboard | `dashboard.html` |
+| Choose Module | `as.html` + `assessment.html` |
+| Actual Practice + Voice Analytics | `quizfinal.html` + `quizfinal.js` |
+| View My Results | `profile_final.html` |
 
 ---
 
-## Project Structure 
----
-FloatChat/
-├── index.html              # Landing page
-├── signin.html             # Login page (auto-filled credentials)
-├── chat.html               # Main chat UI
-├── assets/
-│   ├── css/
-│   │   └── style.css       # Core styles
-│   └── js/
-│       └── script.js       # UI interactivity
-└── README.md
-
+## 📁 Project Structure 
 ---
 
+FluentME/
+├── index.html               # Landing page (marketing)
+├── login.html               # Login / Signup
+├── dashboard.html           # Main dashboard hub
+├── as.html                  # Practice entry point
+├── assessment.html          # Pick skill type
+├── quizfinal.html           # Main speech practice
+├── quizfinal.js             # ALL speech logic
+├── profile_final.html       # Results view
+├── progress.html            # Stats screens (demo UI)
+├── leaderboard.html         # Static leaderboard (future: backend)
+├── settings.html            # Preferences page
+├── stylesfinal.css
+└── welcome.css
+---
 ## Deployed Link  
 ---
 
-**Live Demo:** [https://fluentme.vercel.app/](https://fluentme.vercel.app/)  
+**Live Demo:** [https://floatchat-seven.vercel.app](https://floatchat-seven.vercel.app)  
 *(Open in Chrome/Edge for best experience)*
 
 ---
@@ -108,6 +120,9 @@ FloatChat/
 ## Author  
 ---
 
-**Hargun Kaur**  
-GitHub → @hargun144
+**Hargun**  
+Frontend & AI Enthusiast  
+
+GitHub → [@yourusername](https://github.com/yourusername)
+
 
