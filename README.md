@@ -82,7 +82,7 @@ All this runs purely on the **front-end** — no server required.
 ## Deployed Link  
 ---
 
-**Live Demo:** [https://floatchat-seven.vercel.app](https://floatchat-seven.vercel.app)  
+**Live Demo:** [https://fluentme.vercel.app/](https://fluentme.vercel.app/)  
 *(Open in Chrome/Edge for best experience)*
 
 ---
