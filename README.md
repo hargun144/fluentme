@@ -90,11 +90,10 @@ All this runs purely on the **front-end** — no server required.
 ## Future Roadmap  
 ---
 
-- Multi-user real-time chat via WebSocket/Firebase  
-- Authentication system with JWT or OAuth  
-- Message persistence and database integration  
-- AI chatbot mode (using OpenAI API)  
-- Dark mode toggle  
+- Integrate a backend to save user profiles & scores
+- Multiplayer leaderboard (actual real-time XP tracking)
+- ML-based fluency scoring model (instead of heuristic)
+- Add conversational AI mode (chat-style practice)
 
 ---
 
